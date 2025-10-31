@@ -1,0 +1,68 @@
+/* Additional CSS for monitoring features */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.info-banner.success {
+  background-color: #e8f5e9;
+  border-left-color: #4caf50;
+}
+
+.info-banner.warning {
+  background-color: #fff3e0;
+  border-left-color: #ff9800;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
+}
+
+.no-tasks {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #999;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+/* Add animation for task cards */
+.tasks-section {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

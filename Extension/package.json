@@ -1,0 +1,81 @@
+{
+  "name": "vscode-copilot-bridge",
+  "displayName": "VS Code Copilot Bridge",
+  "description": "Bridge extension to connect FastAPI with GitHub Copilot Chat",
+  "version": "1.0.0",
+  "publisher": "devmind",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilot-bridge.start",
+        "title": "Start Copilot Bridge Server"
+      },
+      {
+        "command": "copilot-bridge.stop",
+        "title": "Stop Copilot Bridge Server"
+      },
+      {
+        "command": "copilot-bridge.status",
+        "title": "Copilot Bridge Status"
+      },
+      {
+        "command": "copilot-bridge.mcpStatus",
+        "title": "Copilot Bridge - MCP Server Status"
+      }
+    ],
+    "configuration": {
+      "title": "Copilot Bridge",
+      "properties": {
+        "copilotBridge.port": {
+          "type": "number",
+          "default": 8765,
+          "description": "WebSocket server port for the bridge"
+        },
+        "copilotBridge.autoStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically start the bridge server on VS Code startup"
+        },
+        "copilotBridge.enableMCP": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable MCP (Model Context Protocol) server integration"
+        },
+        "copilotBridge.mcpTimeout": {
+          "type": "number",
+          "default": 5000,
+          "description": "Timeout for MCP server queries in milliseconds"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.85.0",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/vsce": "^3.6.2",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}

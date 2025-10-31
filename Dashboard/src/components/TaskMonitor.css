@@ -1,0 +1,221 @@
+.task-monitor {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.monitor-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-indicator.connected {
+  background-color: #4caf50;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.disconnected {
+  background-color: #f44336;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.progress-bar-container {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-weight: bold;
+  color: #333;
+  min-width: 45px;
+}
+
+.stages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stage {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #e0e0e0;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.stage-pending {
+  border-left-color: #9e9e9e;
+}
+
+.stage-in-progress {
+  border-left-color: #2196f3;
+  background-color: #e3f2fd;
+}
+
+.stage-completed {
+  border-left-color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.stage-error {
+  border-left-color: #f44336;
+  background-color: #ffebee;
+}
+
+.stage-icon {
+  font-size: 24px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.stage-in-progress .stage-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.stage-content {
+  flex: 1;
+}
+
+.stage-content h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.stage-content p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #999;
+}
+
+.logs-container {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.logs-container h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.logs {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 13px;
+}
+
+.log-entry {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.no-logs {
+  color: #888;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Scrollbar styling */
+.logs::-webkit-scrollbar {
+  width: 8px;
+}
+
+.logs::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+.logs::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.logs::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}

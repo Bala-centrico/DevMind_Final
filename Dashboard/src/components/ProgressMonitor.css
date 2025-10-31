@@ -1,0 +1,286 @@
+.progress-monitor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.progress-monitor {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #eee;
+}
+
+.progress-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.connected {
+  background: #4caf50;
+}
+
+.status-dot.disconnected {
+  background: #ff9800;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.progress-bar-container {
+  margin-bottom: 24px;
+}
+
+.progress-bar {
+  height: 24px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.progress-fill.in-progress {
+  background: linear-gradient(90deg, #2196f3, #03a9f4);
+  animation: progress-pulse 1.5s infinite;
+}
+
+.progress-fill.error {
+  background: linear-gradient(90deg, #f44336, #e57373);
+}
+
+@keyframes progress-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.progress-text {
+  text-align: center;
+  font-weight: bold;
+  color: #666;
+}
+
+.current-stage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.stage-icon {
+  font-size: 2rem;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.stage-details h3 {
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.stage-details .timestamp {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.stages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stage-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.stage-item.pending {
+  opacity: 0.5;
+}
+
+.stage-item.active {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+}
+
+.stage-item.completed {
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+}
+
+.stage-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.stage-item.active .stage-number {
+  background: #2196f3;
+  color: white;
+}
+
+.stage-item.completed .stage-number {
+  background: #4caf50;
+  color: white;
+}
+
+.stage-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.completion-message,
+.error-message {
+  text-align: center;
+  padding: 24px;
+  margin-top: 24px;
+  border-radius: 8px;
+}
+
+.completion-message {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+
+.error-message {
+  background: #ffebee;
+  border: 2px solid #f44336;
+}
+
+.completion-message h3 {
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.error-message h3 {
+  color: #c62828;
+  margin-bottom: 8px;
+}
+
+.waiting-message {
+  text-align: center;
+  padding: 48px 24px;
+  color: #999;
+}
+
+.spinner {
+  font-size: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #45a049;
+}
+
+.btn-secondary {
+  background: #f44336;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #da190b;
+}
